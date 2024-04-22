@@ -284,8 +284,8 @@ const createPos = async () => {
         </div> */}
 
         <div>
-            {posts.map((post,index)=>(
-                <div  key={index} style={cardStyle}>
+            {posts.map((post)=>(
+                <div  key={post.id} style={cardStyle}>
                     <h1>{post.content}</h1>
                     <h2>{post.profiles.id}</h2>
                     <h3>{post.id}</h3>
@@ -298,7 +298,7 @@ const createPos = async () => {
                         onChange={(e) => setCommentText(e.target.value)}
                         style={{...inputStyle,marginBottom:'0'}}
                         placeholder='leave a comment'
-                        value={commentText}
+                        value={commentText[post.id]}
                     />
                     <button onClick={()=>createComment(post.id)}>send</button>
                         </div>
